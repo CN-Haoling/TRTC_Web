@@ -12,9 +12,12 @@
  	- name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
  	run: |
  	npm ci
- 	./deploy.sh
- 	 
- 	- name: Deploy 🚀
- 	uses: JamesIves/github-pages-deploy-action@v4
- 	with:
- 	folder: dist # The folder the action should deploy.
+ 	npm run build
+  cd dist 
+  git init
+git checkout -b main
+git add -A
+git commit -m 'deploy'
+git push -f git@github.com:CN-Haoling/TRTC_Web.git main:gh-pages
+
+cd -
